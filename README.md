@@ -15,7 +15,7 @@ Note that your serverless hosting might require a build step to properly deploy 
 ```typescript
 import algoliasearch from 'algoliasearch'
 import sanityClient, { SanityDocumentStub } from '@sanity/client'
-import { NowRequest, NowResponse } from '@vercel/node'
+import { VercelRequest, VercelResponse } from '@vercel/node'
 import indexer from 'sanity-algolia'
 
 const algolia = algoliasearch(
@@ -36,7 +36,7 @@ const sanity = sanityClient({
  *  This function receives webhook POSTs from Sanity and updates, creates or
  *  deletes records in the corresponding Algolia indices.
  */
-const handler = (req: NowRequest, res: NowResponse) => {
+const handler = (req: VercelRequest, res: VercelResponse) => {
   // Tip: Its good practice to include a shared secret in your webhook URLs and
   // validate it before proceeding with webhook handling. Omitted in this short
   // example.
